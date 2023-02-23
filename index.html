@@ -18,21 +18,34 @@
   </head>
   <body>
     <main>
+      <div>
+        <select name="semestre" id="relatorio" onChange="changedValues()">
+          <option value="70">1° SEM / 2022</option>
+          <option value="50">2° SEM / 2022</option>
+        </select>
+      </div>
       <div class="container-cards">
         <div class="card">
           <h3>NPS geral</h3>
-          <div>
-            <i class="fa-solid fa-face-laugh-beam"></i>
+          <div class="text">
+            <i class="smille fa-solid fa-face-laugh-beam"></i>
             <p>Excelente!</p>
           </div>
           <p class="score">NPS Score 75</p>
         </div>
+
         <div class="card">
           <h3>Vendas fechadas</h3>
           <div class="circle-box">
             <svg>
-              <circle cx="60" cy="60" r="60"></circle>
-              <circle cx="60" cy="60" r="60"></circle>
+              <circle cx="60" cy="60" r="60" class="salle"></circle>
+              <circle
+                cx="60"
+                cy="60"
+                r="60"
+                class="salle"
+                id="salleProgress"
+              ></circle>
 
               <div class="porcent">
                 <p class="num">70%</p>
@@ -41,44 +54,109 @@
             </svg>
           </div>
 
-          <div>
-            <span>Esperado 100</span>
-            <span>Alcançado 70</span>
+          <div class="meta-indice">
+            <div class="indice">
+              <span></span>
+              <p>Esperado 100</p>
+            </div>
+            <div class="indice" id="meta">
+              <span></span>
+              <p>Alcançado 90</p>
+            </div>
           </div>
         </div>
         <div class="card">
           <h3>Meta mensal</h3>
           <div class="circle-box">
             <svg>
-              <circle cx="60" cy="60" r="60"></circle>
-              <circle cx="60" cy="60" r="60"></circle>
+              <circle cx="60" cy="60" r="60" class="mark"></circle>
+              <circle
+                cx="60"
+                cy="60"
+                r="60"
+                class="mark"
+                id="markProgress"
+              ></circle>
 
               <div class="porcent">
-                <p class="num">70%</p>
+                <p class="porct"></p>
                 <p>alcançada</p>
               </div>
             </svg>
           </div>
 
-          <div>
-            <span>Esperado R$70K</span>
-            <span>Alcançado R$63K</span>
+          <div class="meta-indice">
+            <div class="indice">
+              <span></span>
+              <p>Esperado R$70K</p>
+            </div>
+            <div class="indice" id="alcance">
+              <span></span>
+              <p>Alcançado R$63K</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="results">
-        <div>
+        <div class="total">
           <h2>Vendas por dia da semana</h2>
 
           <div>
-            <span><i class="fa-solid fa-caret-up"></i></span>
-            <span>Dia com mais vendas</span>
+            <div class="arrow-score">
+              <span><i class="green fa-solid fa-caret-up"></i></span>
+              <span>Dia com mais vendas</span>
+            </div>
+            <p class="diaMaior"></p>
           </div>
 
           <div>
-            <span><i class="fa-solid fa-caret-up"></i></span>
-            <span>Dia com menos vendas</span>
+            <div class="arrow-score">
+              <span><i class="red fa-solid fa-caret-up"></i></span>
+              <span>Dia com menos vendas</span>
+            </div>
+            <p class="diaMenor"></p>
+          </div>
+        </div>
+
+        <div class="grafic">
+          <div class="divider"></div>
+          <div class="collumn">
+            <div class="barra" id="seg"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="ter"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="qua"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="qui"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="sex"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="sab"></div>
+          </div>
+
+          <div class="collumn">
+            <div class="barra" id="dom"></div>
+          </div>
+
+          <div class="days">
+            <p>seg</p>
+            <p>ter</p>
+            <p>qua</p>
+            <p>qui</p>
+            <p>sex</p>
+            <p>sab</p>
+            <p>dom</p>
           </div>
         </div>
       </div>
@@ -89,4 +167,63 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script>
+    const collumHeight = ["30%", "40%", "100%", "50%", "80%", "70%", "20%"];
+    const collumnSeg = document.getElementById("seg");
+    const collumnTer = document.getElementById("ter");
+    const collumnQua = document.getElementById("qua");
+    const collumnQui = document.getElementById("qui");
+    const collumnSex = document.getElementById("sex");
+    const collumnSab = document.getElementById("sab");
+    const collumnDom = document.getElementById("dom");
+
+    const select = document.getElementById("relatorio");
+
+    const circleSalle = document.querySelector("#salleProgress");
+    const circleMark = document.querySelector("#markProgress");
+    let num = document.querySelector(".num");
+    let alcance = document.querySelector(".porct");
+    let diaMaior = document.querySelector(".diaMaior");
+    let diaMenor = document.querySelector(".diaMenor");
+
+    function changedValues() {
+      var option = select.options[select.selectedIndex].value;
+
+      if (option == 70) {
+        circleSalle.style.strokeDashoffset = 380 - (380 * option) / 100;
+        circleMark.style.strokeDashoffset = 380 - (380 * 90) / 100;
+        num.innerHTML = option + "%";
+        alcance.innerHTML = "90" + "%";
+        diaMaior.innerHTML = "segunda-feira";
+        diaMenor.innerHTML = "quarta-feira";
+
+        collumnSeg.style.height = collumHeight[2];
+        collumnTer.style.height = collumHeight[5];
+        collumnQua.style.height = collumHeight[6];
+        collumnQui.style.height = collumHeight[3];
+        collumnSex.style.height = collumHeight[1];
+        collumnSab.style.height = collumHeight[0];
+        collumnDom.style.height = collumHeight[4];
+      }
+
+      if (option == 50) {
+        circleSalle.style.strokeDashoffset = 380 - (380 * option) / 100;
+        circleMark.style.strokeDashoffset = 380 - (380 * 60) / 100;
+        num.innerHTML = option + "%";
+        alcance.innerHTML = "60" + "%";
+        diaMaior.innerHTML = "quarta-feira";
+        diaMenor.innerHTML = "domingo";
+
+        collumnSeg.style.height = collumHeight[0];
+        collumnTer.style.height = collumHeight[1];
+        collumnQua.style.height = collumHeight[2];
+        collumnQui.style.height = collumHeight[3];
+        collumnSex.style.height = collumHeight[4];
+        collumnSab.style.height = collumHeight[5];
+        collumnDom.style.height = collumHeight[6];
+      }
+    }
+
+    changedValues();
+  </script>
 </html>
