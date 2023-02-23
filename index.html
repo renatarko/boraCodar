@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <main>
+      <div class="container-cards">
+        <div class="card">
+          <h3>NPS geral</h3>
+          <div>
+            <i class="fa-solid fa-face-laugh-beam"></i>
+            <p>Excelente!</p>
+          </div>
+          <p class="score">NPS Score 75</p>
+        </div>
+        <div class="card">
+          <h3>Vendas fechadas</h3>
+          <div class="circle-box">
+            <svg>
+              <circle cx="60" cy="60" r="60"></circle>
+              <circle cx="60" cy="60" r="60"></circle>
+
+              <div class="porcent">
+                <p class="num">70%</p>
+                <p>alcançada</p>
+              </div>
+            </svg>
+          </div>
+
+          <div>
+            <span>Esperado 100</span>
+            <span>Alcançado 70</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Meta mensal</h3>
+          <div class="circle-box">
+            <svg>
+              <circle cx="60" cy="60" r="60"></circle>
+              <circle cx="60" cy="60" r="60"></circle>
+
+              <div class="porcent">
+                <p class="num">70%</p>
+                <p>alcançada</p>
+              </div>
+            </svg>
+          </div>
+
+          <div>
+            <span>Esperado R$70K</span>
+            <span>Alcançado R$63K</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="results">
+        <div>
+          <h2>Vendas por dia da semana</h2>
+
+          <div>
+            <span><i class="fa-solid fa-caret-up"></i></span>
+            <span>Dia com mais vendas</span>
+          </div>
+
+          <div>
+            <span><i class="fa-solid fa-caret-up"></i></span>
+            <span>Dia com menos vendas</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/e1a0909dfe.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #363447;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
+
+span {
+  font-size: 0.7rem;
+}
+
+main {
+  /* width: 80%; */
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.container-cards {
+  /* width: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card {
+  width: 15rem;
+  height: 15rem;
+  background: #363447;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.card > div i {
+  color: #81fbb8;
+}
+
+.circle-box {
+  position: absolute;
+  top: 3.8rem;
+  left: 3.3rem;
+}
+
+.circle-box svg {
+  width: 10rem;
+  height: 10rem;
+  /* translate: (10px, 10px); */
+}
+
+circle {
+  width: 10rem;
+  height: 10rem;
+  fill: none;
+  stroke-width: 17;
+  transform: translate(9px, 9px);
+  stroke-dasharray: 380;
+  stroke-dashoffset: 380;
+  transition: stroke-dashoffset 0.8s;
+  position: relative;
+}
+
+circle:nth-child(1) {
+  stroke: #d9d9d936;
+  stroke-dashoffset: 0;
+}
+
+circle:nth-child(2) {
+  stroke: #ce9ffc;
+  stroke-dashoffset: calc(380 - 266);
+}
+
+.porcent {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.porcent .num {
+  font-size: 1.7rem;
+}
+
+.results {
+  margin-top: 1.5rem;
+  display: flex;
+  background: #363447;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+}
