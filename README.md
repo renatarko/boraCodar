@@ -1,5 +1,5 @@
 # boraCodar
 
-Desafio #08 - Criar um Dashboard | ✅
+Desafio #08 - Criar um Dashboard | ✅ [Link do Projeto](https://renatarko.github.io/boraCodar/)
 
-![Alt Text](./Dashboard.gif)
+![https://renatarko.github.io/boraCodar/](./Dashboard.gif)
